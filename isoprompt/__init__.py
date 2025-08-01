@@ -4,7 +4,7 @@ from .optimizer import optimize_prompt
 from .domains import get_available_domain_names, get_available_domains
 from .modes import get_available_mode_names, get_available_modes
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 __all__ = [
     "optimize_prompt",

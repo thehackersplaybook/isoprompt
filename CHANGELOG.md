@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2] - 1st August 2025 11pm IST.
+
+- Fix functional bugs and incorrect logic.
+
+## [1.0.1] - 1st August 2025 9pm IST.
+
+- Update broken links in README.
+
 ## [1.0.0] - 1st August 2025 4pm IST.
 
 ### Added.
