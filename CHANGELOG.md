@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.3] - 2nd August 2025 1:20am IST.
+
+- Update prompts.
+- Bump default max tokens.
+
 ## [1.0.2] - 1st August 2025 11pm IST.
 
 - Fix functional bugs and incorrect logic.
