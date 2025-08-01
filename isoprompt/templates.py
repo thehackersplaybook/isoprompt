@@ -84,10 +84,18 @@ def get_optimization_template(mode: str, domain: Optional[str] = None) -> str:
         optimized prompt that will get better results from AI models.\n\n
         
         NOTE: Take the user's input and transform it into a production-ready prompt.
-        Return ONLY the optimized prompt, nothing else.
+        Return the full optimized prompt with all improvements, format, structure, details, and style incorporated.
         
-        Mode Instructions: '{mode_instructions}'.\n\n
-        Domain Instructions: '{domain_instructions}'.\n\n
+        Don't include text like this:
+        
+        "Certainly! Below is a highly optimized, detailed prompt designed to generate a comprehensive startup plan for an open-source research lab focused on frontier Large Language Model (LLM) research. The prompt incorporates clear instructions, structured format, and domain-specific considerations to ensure high-quality output."
+
+        Skip text like the above and directly give the fully optimized prompt.
+
+        Mode Instructions: \n
+        '{mode_instructions}'.\n
+        Domain Instructions: \n
+        '{domain_instructions}'.\n\n
         
         Follow these guidelines for writing a good optimized prompt.
 
