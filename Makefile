@@ -51,16 +51,10 @@ build: clean ## Build package distributions
 	python -m build
 
 publish: ## Publish package to PyPI
-	@if [ -z "$$PYPI_TOKEN" ]; then \
-		echo "$(RED)Error: PYPI_TOKEN environment variable not set.$(RESET)"; \
-		echo "Please set your PyPI token:"; \
-		echo "export PYPI_TOKEN='your-token-here'"; \
-		exit 1; \
-	fi
 	@echo "$(YELLOW)Building distributions...$(RESET)"
 	python -m build
 	@echo "$(YELLOW)Publishing to PyPI...$(RESET)"
-	python -m twine upload dist/* --username __token__ --password $$PYPI_TOKEN
+	python -m twine upload dist/*
 
 version: ## Show package version
 	@if [ -f "isoprompt/__init__.py" ]; then \
