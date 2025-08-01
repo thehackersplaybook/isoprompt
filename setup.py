@@ -20,7 +20,7 @@ def read_readme():
 
 setup(
     name="isoprompt",
-    version="1.0.0",
+    version="1.0.1",
     author="Aditya Patange (AdiPat)",
     author_email="zero@thehackersplaybook.org",
     description="AI-powered prompt generation and processing tool",

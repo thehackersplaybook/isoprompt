@@ -36,6 +36,8 @@ prompt = optimize_prompt(
 )
 ```
 
+For more examples, see our [Examples](https://github.com/thehackersplaybook/isoprompt/blob/main/docs/EXAMPLES.md) documentation.
+
 ## Domain Specialization
 
 ```python
@@ -48,19 +50,11 @@ print(domains)
 # Use a specific domain
 prompt = optimize_prompt(
     "Write a technical specification",
-    domain="technology"
+    domain="technology",
+    mode="analytical"
 )
 ```
 
-## Configuration
+## API Reference
 
-IsoPrompt can be configured using a JSON file:
-
-```json
-{
-  "mode": "analytical",
-  "domain": "technology",
-  "temperature": 0.7,
-  "model": "gpt-4"
-}
-```
+For detailed API documentation, see our [API Reference](https://github.com/thehackersplaybook/isoprompt/blob/main/docs/API_REFERENCE.md).

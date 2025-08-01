@@ -30,10 +30,12 @@ Optimize a user's basic prompt into a high-quality, production-ready prompt.
 
 - Optimized prompt string
 
+For examples, see our [Examples](https://github.com/thehackersplaybook/isoprompt/blob/main/docs/EXAMPLES.md) documentation.
+
 ### get_available_modes
 
 ```python
-def get_available_modes() -> List[IsoPromptMode]
+def get_available_modes() -> List[IsoPromptMode]:
 ```
 
 Get a list of available optimization modes.
@@ -45,10 +47,10 @@ Get a list of available optimization modes.
 ### get_available_domains
 
 ```python
-def get_available_domains() -> List[IsoPromptDomain]
+def get_available_domains() -> List[IsoPromptDomain]:
 ```
 
-Get a list of available domains.
+Get a list of available domain specializations.
 
 **Returns:**
 
@@ -67,6 +69,8 @@ class IsoPromptMode(BaseModel):
     parameters: Optional[Dict[str, str]] = None
 ```
 
+A model representing an optimization mode.
+
 ### IsoPromptDomain
 
 ```python
@@ -77,3 +81,9 @@ class IsoPromptDomain(BaseModel):
     instructions: str
     parameters: Optional[Dict[str, str]] = None
 ```
+
+A model representing a domain specialization.
+
+## CLI Usage
+
+For CLI usage examples, see our [Getting Started](https://github.com/thehackersplaybook/isoprompt/blob/main/docs/GETTING_STARTED.md#cli-usage) guide.

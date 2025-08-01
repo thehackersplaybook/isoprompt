@@ -27,6 +27,8 @@ prompt = optimize_prompt(
 )
 ```
 
+For more details about modes, see our [API Reference](https://github.com/thehackersplaybook/isoprompt/blob/main/docs/API_REFERENCE.md#modes).
+
 ## Domain Specialization
 
 ```python
@@ -44,12 +46,22 @@ prompt = optimize_prompt(
 )
 ```
 
+For more details about domains, see our [API Reference](https://github.com/thehackersplaybook/isoprompt/blob/main/docs/API_REFERENCE.md#domains).
+
 ## CLI Usage
 
 ```bash
 # Basic usage
-isoprompt --prompt "Write a blog post about AI"
+isoprompt --prompt "Generate a fitness plan for students."
 
-# With mode and domain
-isoprompt --prompt "Write a technical spec" --mode analytical --domain technology
+# With domain
+isoprompt --prompt "Optimize supply chain" --domain logistics
+
+# With mode
+isoprompt --prompt "Marketing ideas" --mode creative
+
+# With both
+isoprompt --prompt "Technical spec" --mode analytical --domain technology
 ```
+
+For more CLI options, see our [Getting Started](https://github.com/thehackersplaybook/isoprompt/blob/main/docs/GETTING_STARTED.md#cli-usage) guide.
