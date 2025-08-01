@@ -1,74 +1,55 @@
-# PyPrompt Examples.
+# IsoPrompt Examples
 
-## Basic Usage.
+## Basic Usage
 
 ```python
-from pyprompt import optimize_prompt
+from isoprompt import optimize_prompt
 
-# Simple prompt optimization.
-prompt = "Write a blog post about AI"
-optimized = optimize_prompt(prompt)
-print(optimized)
+# Simple prompt optimization
+prompt = optimize_prompt("Write a blog post about AI")
+print(prompt)
 ```
 
-## Advanced Usage.
-
-### Using Different Modes.
+## Using Different Modes
 
 ```python
-from pyprompt import optimize_prompt, get_available_modes
+from isoprompt import optimize_prompt, get_available_modes
 
-# List available modes.
+# List available modes
 modes = get_available_modes()
-for mode in modes:
-    print(f"{mode.mode}: {mode.description}")
+print(modes)
 
-# Use analytical mode.
-optimized = optimize_prompt(
-    "Write a technical analysis",
+# Use analytical mode
+prompt = optimize_prompt(
+    "Write a technical spec",
     mode="analytical",
     temperature=0.5
 )
 ```
 
-### Domain Specialization.
+## Domain Specialization
 
 ```python
-from pyprompt import optimize_prompt, get_available_domains
+from isoprompt import optimize_prompt, get_available_domains
 
-# List available domains.
+# List available domains
 domains = get_available_domains()
-for domain in domains:
-    print(f"{domain.domain}: {domain.description}")
+print(domains)
 
-# Use technology domain.
-optimized = optimize_prompt(
+# Use technology domain
+prompt = optimize_prompt(
     "Write a technical specification",
     domain="technology",
     mode="analytical"
 )
 ```
 
-### Configuration.
-
-```python
-# Load configuration from file.
-with open("config.json", "r") as f:
-    config = json.load(f)
-
-# Use configuration.
-optimized = optimize_prompt(
-    "Write documentation",
-    **config
-)
-```
-
-## Command Line Usage.
+## CLI Usage
 
 ```bash
-# Simple prompt
-pyprompt --prompt "Write a blog post about AI"
+# Basic usage
+isoprompt --prompt "Write a blog post about AI"
 
 # With mode and domain
-pyprompt --prompt "Write a technical spec" --mode analytical --domain technology
+isoprompt --prompt "Write a technical spec" --mode analytical --domain technology
 ```

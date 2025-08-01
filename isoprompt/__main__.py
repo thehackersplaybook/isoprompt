@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Main entry point for running PyPrompt as a module."""
+"""Main entry point for running IsoPrompt as a module."""
 
 from .cli import main
 

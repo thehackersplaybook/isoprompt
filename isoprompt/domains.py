@@ -1,17 +1,16 @@
 """
-PyPrompt - AI-powered prompt optimization tool.
-Domains are the categories of knowledge that PyPrompt can optimize prompts for.
-Author: AdityaPatange (AdiPat).
+IsoPrompt - AI-powered prompt optimization tool.
+Domains are the categories of knowledge that IsoPrompt can optimize prompts for.
 """
 
 from typing import List
 
-from .models import PyPromptDomain
+from .models import IsoPromptDomain
 
 DEFAULT_DOMAIN = "general_knowledge"
 
 
-PYPROMPT_DOMAINS = [
+ISOPROMPT_DOMAINS = [
     # Pure Sciences
     {
         "domain": "mathematics",
@@ -603,16 +602,14 @@ PYPROMPT_DOMAINS = [
 ]
 
 
-def get_available_domains() -> List[PyPromptDomain]:
-    """Get a list of available domains with metadata."""
-    return [PyPromptDomain.model_validate(domain) for domain in PYPROMPT_DOMAINS]
+def get_available_domains() -> List[IsoPromptDomain]:
+    """Get a list of available domains."""
+    return [IsoPromptDomain.model_validate(domain) for domain in ISOPROMPT_DOMAINS]
 
 
-def get_default_domain() -> PyPromptDomain:
+def get_default_domain() -> IsoPromptDomain:
     """Get the default domain."""
-    domains = get_available_domains()
-    default = next((d for d in domains if d.domain == DEFAULT_DOMAIN), domains[0])
-    return default
+    return IsoPromptDomain.model_validate(ISOPROMPT_DOMAINS[0])
 
 
 def is_domain_valid(domain: str) -> bool:

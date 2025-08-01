@@ -1,79 +1,66 @@
-# Getting Started with PyPrompt
+# Getting Started with IsoPrompt
 
 ## Installation
 
-Install PyPrompt using pip:
+Install IsoPrompt using pip:
 
 ```bash
-pip install pyprompt
+pip install isoprompt
 ```
 
 ## Basic Usage
 
-Here's a simple example:
-
 ```python
-from pyprompt import optimize_prompt
+from isoprompt import optimize_prompt
 
 # Simple prompt optimization
-prompt = "Write a blog post about AI"
-optimized = optimize_prompt(prompt)
-print(optimized)
+prompt = optimize_prompt("Write a blog post about AI")
+print(prompt)
 ```
 
-## Advanced Features
+## Optimization Modes
 
-### Using Different Modes
-
-PyPrompt supports various optimization modes:
+IsoPrompt supports various optimization modes:
 
 ```python
-from pyprompt import optimize_prompt, get_available_modes
+from isoprompt import optimize_prompt, get_available_modes
 
 # List available modes
 modes = get_available_modes()
-for mode in modes:
-    print(f"{mode.mode}: {mode.description}")
+print(modes)
 
-# Use analytical mode
-optimized = optimize_prompt(
-    "Write a technical analysis",
-    mode="analytical",
-    temperature=0.5
+# Use a specific mode
+prompt = optimize_prompt(
+    "Write a technical spec",
+    mode="analytical"
 )
 ```
 
-### Domain Specialization
-
-You can optimize prompts for specific domains:
+## Domain Specialization
 
 ```python
-from pyprompt import optimize_prompt, get_available_domains
+from isoprompt import optimize_prompt, get_available_domains
 
 # List available domains
 domains = get_available_domains()
-for domain in domains:
-    print(f"{domain.domain}: {domain.description}")
+print(domains)
 
-# Use technology domain
-optimized = optimize_prompt(
+# Use a specific domain
+prompt = optimize_prompt(
     "Write a technical specification",
-    domain="technology",
-    mode="analytical"
+    domain="technology"
 )
 ```
 
 ## Configuration
 
-PyPrompt can be configured using a JSON file:
+IsoPrompt can be configured using a JSON file:
 
 ```json
 {
   "mode": "analytical",
   "domain": "technology",
-  "model": "gpt-4.1-nano",
-  "temperature": 0.7
+  "temperature": 0.7,
+  "model": "gpt-4"
 }
 ```
-
-For more examples, see the [examples directory](../examples/).

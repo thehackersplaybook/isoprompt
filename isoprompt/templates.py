@@ -1,31 +1,21 @@
 """
-PyPrompt - AI-powered prompt optimization tool.
-Templates for PyPrompt.
-Author: AdityaPatange (AdiPat).
+IsoPrompt - AI-powered prompt optimization tool.
+Templates for IsoPrompt.
 """
 
 from typing import Optional
 
-from .domains import get_available_domains, get_default_domain
-from .models import PyPromptDomain, PyPromptMode
-from .modes import get_available_modes, get_default_mode
+from .models import IsoPromptDomain, IsoPromptMode
 
 
-def construct_mode_instruction(mode: PyPromptMode) -> str:
-    """Construct a mode-specific instruction for prompt optimization."""
+def construct_mode_instruction(mode: IsoPromptMode) -> str:
+    """Construct the instruction for a mode."""
+    return mode.instructions
 
-    mode_instructions = f"""
-    ___
-    Mode: {mode.mode}
-    Description: {mode.description}.
-    Capabilities: {mode.capabilities}.
-    Strictness: {mode.strictness}.
-    Require Citations: {mode.require_citations}.
-    Output Formats: {mode.output_formats}.
-    ___
-    """
 
-    return mode_instructions
+def construct_domain_instruction(domain: IsoPromptDomain) -> str:
+    """Construct the instruction for a domain."""
+    return domain.instructions
 
 
 def get_mode_instructions(mode: str) -> str:
@@ -36,21 +26,6 @@ def get_mode_instructions(mode: str) -> str:
     mode_obj = next((m for m in modes if m.mode == mode), default_mode)
 
     return construct_mode_instruction(mode_obj)
-
-
-def construct_domain_instruction(domain: PyPromptDomain) -> str:
-    """Construct a domain-specific instruction for prompt optimization."""
-
-    domain_instructions = f"""
-    ___
-    Domain: {domain.domain}
-    Description: {domain.description}
-    Fields: {domain.fields}
-    Applications: {domain.applications}
-    ___
-    """
-
-    return domain_instructions
 
 
 def get_domain_instructions(domain: Optional[str] = None) -> str:

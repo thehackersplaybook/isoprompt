@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Basic usage examples for PyPrompt."""
+"""Basic usage examples for IsoPrompt."""
 
-from pyprompt import (
+from isoprompt import (
     optimize_prompt,
     get_available_mode_names,
     get_available_domain_names,
 )
+
+# Load environment variables
 from dotenv import load_dotenv
 
 
@@ -21,6 +23,7 @@ def load_env():
 
 
 def main():
+    """Run the example."""
     load_env()
     # Simple prompt optimization
     prompt = "Write a blog post about AI"

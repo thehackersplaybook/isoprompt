@@ -18,7 +18,7 @@ include examples/*.md
 include examples/*.json
 
 # Include package data
-include pyprompt/py.typed
+include isoprompt/py.typed
 
 # Exclude development and temporary files
 exclude .gitignore

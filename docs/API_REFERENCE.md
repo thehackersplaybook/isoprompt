@@ -1,43 +1,79 @@
-# PyPrompt API Reference.
+# IsoPrompt API Reference
 
-## Core Functions.
+## Core Functions
 
-### Optimize Prompt.
+### optimize_prompt
 
 ```python
 def optimize_prompt(
     user_input: str,
     mode: str = "simple",
     domain: Optional[str] = None,
-    model: str = "gpt-4.1-nano",
+    model: str = "gpt-4",
     temperature: float = 0.7,
-) -> str
+    verbose: bool = False,
+) -> str:
 ```
 
-Optimizes a user's basic prompt into a high-quality, production-ready prompt.
+Optimize a user's basic prompt into a high-quality, production-ready prompt.
 
-### Validate Config.
+**Parameters:**
+
+- `user_input`: The user's basic prompt or request
+- `mode`: Optimization mode (simple, reasoning, chain_of_thought, creative, analytical)
+- `domain`: Optional domain specialization
+- `model`: OpenAI model to use for optimization
+- `temperature`: Temperature for generation (lower = more focused)
+- `verbose`: Whether to print verbose output
+
+**Returns:**
+
+- Optimized prompt string
+
+### get_available_modes
 
 ```python
-def validate_config(config: Dict[str, Any]) -> None
+def get_available_modes() -> List[IsoPromptMode]
 ```
 
-Validates configuration parameters for prompt optimization.
+Get a list of available optimization modes.
 
-## Modes and Domains.
+**Returns:**
 
-### Get available modes.
+- List of IsoPromptMode objects
+
+### get_available_domains
 
 ```python
-def get_available_modes() -> List[PyPromptMode]
+def get_available_domains() -> List[IsoPromptDomain]
 ```
 
-Gets a list of available optimization modes with metadata.
+Get a list of available domains.
 
-### Get available domains.
+**Returns:**
+
+- List of IsoPromptDomain objects
+
+## Data Models
+
+### IsoPromptMode
 
 ```python
-def get_available_domains() -> List[PyPromptDomain]
+class IsoPromptMode(BaseModel):
+    name: str
+    description: str
+    examples: List[str]
+    instructions: str
+    parameters: Optional[Dict[str, str]] = None
 ```
 
-Gets a list of available domains with metadata.
+### IsoPromptDomain
+
+```python
+class IsoPromptDomain(BaseModel):
+    name: str
+    description: str
+    examples: List[str]
+    instructions: str
+    parameters: Optional[Dict[str, str]] = None
+```

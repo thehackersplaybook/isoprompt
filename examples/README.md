@@ -1,29 +1,21 @@
-# PyPrompt Examples
+# IsoPrompt Examples
 
-This directory contains example code demonstrating how to use PyPrompt.
+This directory contains example code demonstrating how to use IsoPrompt.
 
-## Files
+## Running Examples
 
-- `basic_usage.py`: Basic examples of prompt optimization.
+To run the examples:
 
-## Running the Examples
-
-1. Make sure PyPrompt is installed:
-
+1. Clone the repository
+2. Install dependencies:
    ```bash
-   pip install pyprompt
+   pip install -r requirements.txt
    ```
-
-2. Run the basic example:
+3. Make sure IsoPrompt is installed:
+   ```bash
+   pip install isoprompt
+   ```
+4. Run the examples:
    ```bash
    python basic_usage.py
    ```
-
-## Example Output
-
-The examples will show:
-
-- Basic prompt optimization.
-- Using different optimization modes.
-- Domain-specific optimization.
-- Available modes and domains.

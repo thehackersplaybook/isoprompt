@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Fallback setup.py for pyprompt package.
+Fallback setup.py for isoprompt package.
 Modern installations should use pyproject.toml, but this provides compatibility.
 """
 
@@ -19,14 +19,14 @@ def read_readme():
 
 
 setup(
-    name="pyprompt",
+    name="isoprompt",
     version="1.0.0",
     author="Aditya Patange (AdiPat)",
     author_email="zero@thehackersplaybook.org",
     description="AI-powered prompt generation and processing tool",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/thehackersplaybook/pyprompt",
+    url="https://github.com/thehackersplaybook/isoprompt",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -47,14 +47,14 @@ setup(
     python_requires=">=3.8",
     entry_points={
         "console_scripts": [
-            "pyprompt=pyprompt.cli:main",
+            "isoprompt=isoprompt.cli:main",
         ],
     },
     keywords="python ai prompt llm-ops research openai gpt nlp cli",
     project_urls={
-        "Documentation": "https://github.com/thehackersplaybook/pyprompt/blob/main/docs/getting_started.md",
-        "Source": "https://github.com/thehackersplaybook/pyprompt",
-        "Tracker": "https://github.com/thehackersplaybook/pyprompt/issues",
+        "Documentation": "https://github.com/thehackersplaybook/isoprompt/blob/main/docs/getting_started.md",
+        "Source": "https://github.com/thehackersplaybook/isoprompt",
+        "Tracker": "https://github.com/thehackersplaybook/isoprompt/issues",
     },
     include_package_data=True,
     zip_safe=False,

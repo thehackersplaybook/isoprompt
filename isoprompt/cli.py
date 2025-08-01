@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
-Command-line interface for PyPrompt, prompt optimization a command away.
-Type lazy, get more. Transform basic prompts into optimized, production-ready prompts with domain-tuning.
-Author: AdityaPatange (AdiPat).
+Command-line interface for IsoPrompt, prompt optimization a command away.
 """
 
 import argparse
+import json
+import os
 import sys
 import time
-import traceback
-from pathlib import Path
+from typing import Optional
 
 from dotenv import load_dotenv
 
@@ -25,25 +24,24 @@ from .optimizer import (
 
 
 def create_parser() -> argparse.ArgumentParser:
-    """Create and configure the argument parser."""
+    """Create the argument parser."""
     parser = argparse.ArgumentParser(
-        prog="pyprompt",
-        description="Type lazy, get more. Transform basic prompts into optimized, production-ready prompts with domain-tuning.",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
+        prog="isoprompt",
+        description="AI-powered prompt optimization tool.",
         epilog="""
-    Examples:
-    # Basic optimization.
-    pyprompt --prompt "write a blog post about AI"
-
-    # With domain specialization.
-    pyprompt --prompt "optimize our supply chain" --domain supply_chain
-
-    # Creative mode with refinement.
-    pyprompt --prompt "marketing campaign ideas" --mode creative --refine
-
-    # From file input.
-    pyprompt --input basic_prompt.txt --output optimized_prompt.txt
+Examples:
+  isoprompt --prompt "write a blog post about AI"
+  
+  # With domain specialization
+  isoprompt --prompt "optimize our supply chain" --domain supply_chain
+  
+  # With mode selection
+  isoprompt --prompt "marketing campaign ideas" --mode creative --refine
+  
+  # File I/O
+  isoprompt --input basic_prompt.txt --output optimized_prompt.txt
         """,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
     # Input options: You can either provide a prompt or an input file.
@@ -107,7 +105,7 @@ def create_parser() -> argparse.ArgumentParser:
     )
 
     # Utility options
-    parser.add_argument("--version", action="version", version="pyprompt v1.0.0.")
+    parser.add_argument("--version", action="version", version="isoprompt v1.0.0")
 
     parser.add_argument(
         "--verbose", "-v", action="store_true", help="Show detailed output."
@@ -146,13 +144,13 @@ def save_prompt_to_file(prompt: str, file_path: str) -> None:
         file_path: The path to the file to save the prompt to.
     """
     try:
-        output_path = Path(file_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path = os.path.abspath(file_path)
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(prompt)
 
-        print(f"✓ Optimized prompt saved to: {file_path}")
+        print(f"✓ Optimized prompt saved to: {output_path}")
     except Exception as e:
         print(f"Error saving file: {e}", file=sys.stderr)
         sys.exit(1)
@@ -186,62 +184,53 @@ def load_env() -> None:
 
 
 def main() -> None:
-    """
-    Run the main CLI entry point.
-
-    Args:
-        None
-
-    Returns:
-        None
-    """
-
-    load_env()
-
-    parser = create_parser()
-    args = parser.parse_args()
-
-    # Get input prompt
-    if args.prompt:
-        user_input = args.prompt
-    elif args.input:
-        user_input = load_prompt_from_file(args.input)
-    else:
-        print("Error: No prompt provided.", file=sys.stderr)
-        sys.exit(1)
-
-    if not user_input.strip():
-        print("Error: Empty prompt provided.", file=sys.stderr)
-        sys.exit(1)
-
-    # Validate configuration
-    config = {
-        "mode": args.mode,
-        "domain": args.domain,
-        "temperature": args.temperature,
-        "model": args.model,
-    }
-
+    """Main entry point for the CLI."""
     try:
-        validate_config(config)
-    except ValueError as e:
-        print(f"Configuration error: {e}.")
-        print(
-            "Please check if you have passed correct arguments, run --help for more information."
-        )
-        traceback.print_exc()
-        sys.exit(1)
-
-    if args.verbose:
-        print(generate_input_preview(user_input))
-        print(f"Mode: {args.mode}")
-        if args.domain:
-            print(f"Domain: {args.domain}")
-
-    try:
-        # Optimize the prompt
+        print("🔧 Starting IsoPrompt run now.")
         start_time = time.time()
-        print("🔧 Starting PyPrompt run now.")
+
+        load_env()
+
+        parser = create_parser()
+        args = parser.parse_args()
+
+        # Get input prompt
+        if args.prompt:
+            user_input = args.prompt
+        elif args.input:
+            user_input = load_prompt_from_file(args.input)
+        else:
+            print("Error: No prompt provided.", file=sys.stderr)
+            sys.exit(1)
+
+        if not user_input.strip():
+            print("Error: Empty prompt provided.", file=sys.stderr)
+            sys.exit(1)
+
+        # Validate configuration
+        config = {
+            "mode": args.mode,
+            "domain": args.domain,
+            "temperature": args.temperature,
+            "model": args.model,
+        }
+
+        try:
+            validate_config(config)
+        except ValueError as e:
+            print(f"Configuration error: {e}.")
+            print(
+                "Please check if you have passed correct arguments, run --help for more information."
+            )
+            sys.exit(1)
+
+        if args.verbose:
+            print(generate_input_preview(user_input))
+            print(f"Mode: {args.mode}")
+            if args.domain:
+                print(f"Domain: {args.domain}")
+
+        # Optimize the prompt
         optimized = optimize_prompt(
             user_input=user_input,
             mode=args.mode,
@@ -250,12 +239,11 @@ def main() -> None:
             temperature=args.temperature,
             verbose=args.verbose,
         )
-        end_time = time.time()
-        duration = end_time - start_time
+        duration = time.time() - start_time
 
         # Output result
         print(
-            f"🎉 PyPrompt Run Complete: Prompt optimization succeeded in {duration:.2f} seconds."
+            f"🎉 IsoPrompt Run Complete: Prompt optimization succeeded in {duration:.2f} seconds."
         )
         if args.output:
             save_prompt_to_file(optimized, args.output)
@@ -265,9 +253,9 @@ def main() -> None:
         if not args.output:
             print("💡 Tip: Use --output to save the optimized prompt to a file.")
 
+        sys.exit(0)
     except Exception as e:
-        print("Error: PyPrompt run failed: " + str(e) + ".")
-        traceback.print_exc()
+        print("Error: IsoPrompt run failed: " + str(e) + ".")
         sys.exit(1)
 
 

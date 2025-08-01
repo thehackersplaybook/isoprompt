@@ -3,10 +3,10 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyprompt"
+name = "isoprompt"
 version = "1.0.0"
 authors = [
-    {name = "PyPrompt Team", email = "team@pyprompt.ai"},
+    {name = "IsoPrompt Team", email = "team@isoprompt.ai"},
 ]
 description = "AI-powered prompt generation and processing tool"
 readme = "README.md"
@@ -47,19 +47,19 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pyprompt/pyprompt"
-Documentation = "https://pyprompt.readthedocs.io"
-Repository = "https://github.com/pyprompt/pyprompt.git"
-Issues = "https://github.com/pyprompt/pyprompt/issues"
+Homepage = "https://github.com/thehackersplaybook/isoprompt"
+Documentation = "https://isoprompt.readthedocs.io"
+Repository = "https://github.com/thehackersplaybook/isoprompt.git"
+Issues = "https://github.com/thehackersplaybook/isoprompt/issues"
 
 [project.scripts]
-pyprompt = "pyprompt.cli:main"
+isoprompt = "isoprompt.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["pyprompt*"]
+include = ["isoprompt*"]
 
 [tool.setuptools.package-data]
-pyprompt = ["py.typed"]
+isoprompt = ["py.typed"]
 
 [tool.black]
 line-length = 88
@@ -83,7 +83,7 @@ extend-exclude = '''
 profile = "black"
 multi_line_output = 3
 line_length = 88
-known_first_party = ["pyprompt"]
+known_first_party = ["isoprompt"]
 
 [tool.mypy]
 python_version = "3.8"
@@ -110,7 +110,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["pyprompt"]
+source = ["isoprompt"]
 omit = [
     "*/tests/*",
     "*/test_*",

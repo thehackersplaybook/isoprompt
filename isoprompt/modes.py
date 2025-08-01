@@ -1,16 +1,15 @@
 """
-PyPrompt - AI-powered prompt optimization tool.
-Modes are the various ways PyPrompt can optimize prompts.
-Author: AdityaPatange (AdiPat).
+IsoPrompt - AI-powered prompt optimization tool.
+Modes are the various ways IsoPrompt can optimize prompts.
 """
 
 from typing import List
 
-from .models import PyPromptMode
+from .models import IsoPromptMode
 
 DEFAULT_MODE = "simple"
 
-PYPROMPT_MODES = [
+ISOPROMPT_MODES = [
     # --- FOUNDATION MODES ---
     {
         "mode": "simple",
@@ -344,32 +343,22 @@ PYPROMPT_MODES = [
 ]
 
 
-def get_available_modes() -> List[PyPromptMode]:
-    """
-    Get a list of available optimization modes with metadata.
-
-    Args:
-        None
+def get_available_modes() -> List[IsoPromptMode]:
+    """Get a list of available modes.
 
     Returns:
-        A list of PyPromptMode objects.
+        A list of IsoPromptMode objects.
     """
-    return [PyPromptMode.model_validate(mode) for mode in PYPROMPT_MODES]
+    return [IsoPromptMode.model_validate(mode) for mode in ISOPROMPT_MODES]
 
 
-def get_default_mode() -> PyPromptMode:
-    """
-    Get the default mode.
-
-    Args:
-        None
+def get_default_mode() -> IsoPromptMode:
+    """Get the default mode.
 
     Returns:
-        A PyPromptMode object.
+        A IsoPromptMode object.
     """
-    modes = get_available_modes()
-    default = next((m for m in modes if m.mode == DEFAULT_MODE), modes[0])
-    return default
+    return IsoPromptMode.model_validate(ISOPROMPT_MODES[0])
 
 
 def is_mode_valid(mode: str) -> bool:

@@ -1,53 +1,44 @@
-# PyPrompt.
+# IsoPrompt
 
-Type lazy, get more. Transform simple queries into high-quality, production-grade prompts for LLMs.
+IsoPrompt [`isoprompt`] offers prompt optimization via a simple, user-friendly CLI and programmable API SDK.
 
-PyPrompt [`pyprompt`] offers prompt optimization via a simple, user-friendly CLI and programmable API SDK.
+## Features
 
-## Documentation.
+- 🎯 **Optimizes prompts** for better results
+- 🔧 **Domain-specific tuning** for various fields
+- 🛠 **Multiple optimization modes** for different use cases
+- 📚 **Rich documentation** and examples
+- 🧪 **Test-driven development** with high coverage
+- 🔒 **Type-safe** with full type hints
 
-- [Getting Started](docs/GETTING_STARTED.md).
-- [API Reference](docs/API_REFERENCE.md).
-- [Examples](docs/EXAMPLES.md).
-
-## Quick Start (SDK).
+## Quick Start
 
 ```python
-from pyprompt import optimize_prompt
+from isoprompt import optimize_prompt
 
 prompt = "Write a blog post about AI"
 optimized = optimize_prompt(prompt)
 print(optimized)
 ```
 
-## Quick Start (CLI).
+Or via CLI:
 
 ```bash
-pyprompt --prompt "Generate a fitness plan for students."
+isoprompt --prompt "Generate a fitness plan for students."
 ```
 
-## Installation.
+## Installation
 
 ```bash
-pip install pyprompt
+pip install isoprompt
 ```
 
-## Development.
+## Documentation
 
-```bash
-# Install development dependencies.
-make install-dev
+- [Getting Started](docs/GETTING_STARTED.md)
+- [API Reference](docs/API_REFERENCE.md)
+- [Examples](docs/EXAMPLES.md)
 
-# Run tests.
-make test
+## License
 
-# Run linter.
-make lint
-
-# Run all checks.
-make validate
-```
-
-## License.
-
-MIT License - see [LICENSE](LICENSE) for details.
+MIT
