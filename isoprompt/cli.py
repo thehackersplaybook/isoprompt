@@ -4,11 +4,10 @@ Command-line interface for IsoPrompt, prompt optimization a command away.
 """
 
 import argparse
-import traceback
 import os
 import sys
 import time
-from typing import Optional
+import traceback
 
 from dotenv import load_dotenv
 

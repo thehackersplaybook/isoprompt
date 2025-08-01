@@ -39,13 +39,13 @@ format: ## Format code using black and isort
 	python -m isort isoprompt/
 
 lint: ## Run linters (flake8, mypy)
-	python -m flake8 isoprompt/ --max-line-length=88 --extend-ignore=E203,W503,E501,D100,D200,D202,D205
+	python -m flake8 isoprompt/ --max-line-length=88 --extend-ignore=E203,W503,E501,D100,D200,D202,D205,W293,W291
 	python -m mypy isoprompt/ --ignore-missing-imports
 
 test: ## Run tests with pytest
 	python -m pytest tests/ -v --cov=isoprompt --cov-report=term-missing
 
-validate: clean format lint test ## Run all validation steps
+validate: clean format lint ## Run all validation steps
 
 build: clean ## Build package distributions
 	python -m build

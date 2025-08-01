@@ -6,9 +6,9 @@ Templates for IsoPrompt.
 import os
 from typing import Optional
 
+from .domains import get_available_domains, get_default_domain
 from .models import IsoPromptDomain, IsoPromptMode
-from .modes import get_default_mode, get_available_modes
-from .domains import get_default_domain, get_available_domains
+from .modes import get_available_modes, get_default_mode
 
 
 def get_prompt_guidelines() -> str:

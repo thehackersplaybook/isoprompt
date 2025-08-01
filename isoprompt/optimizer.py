@@ -16,9 +16,9 @@ import json
 
 from .constants import (
     DEFAULT_LLM_MODEL,
+    DEFAULT_MAX_TOKENS,
     DEFAULT_MODE,
     DEFAULT_TEMPERATURE,
-    DEFAULT_MAX_TOKENS,
     SUPPORTED_LLM_MODELS,
 )
 from .domains import get_available_domain_names, is_domain_valid

@@ -1,8 +1,8 @@
 """IsoPrompt - AI-powered prompt optimization tool."""
 
-from .optimizer import optimize_prompt
 from .domains import get_available_domain_names, get_available_domains
 from .modes import get_available_mode_names, get_available_modes
+from .optimizer import optimize_prompt
 
 __version__ = "1.0.3"
 

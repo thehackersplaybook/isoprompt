@@ -3,7 +3,8 @@ IsoPrompt - AI-powered prompt optimization tool.
 Data structures for IsoPrompt.
 """
 
-from typing import Dict, List, Optional
+from typing import List
+
 from pydantic import BaseModel
 
 
