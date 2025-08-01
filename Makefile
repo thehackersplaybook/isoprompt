@@ -50,6 +50,8 @@ validate: clean format lint ## Run all validation steps
 build: clean ## Build package distributions
 	python -m build
 
+all: clean format lint validate build publish
+
 publish: ## Publish package to PyPI
 	@echo "$(YELLOW)Building distributions...$(RESET)"
 	python -m build
