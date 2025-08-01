@@ -358,7 +358,11 @@ def get_default_mode() -> IsoPromptMode:
     Returns:
         A IsoPromptMode object.
     """
-    return IsoPromptMode.model_validate(ISOPROMPT_MODES[0])
+    modes = get_available_modes()
+    default_mode = next((mode for mode in modes if mode.mode == DEFAULT_MODE), None)
+    if default_mode is None:
+        raise ValueError(f"Default mode '{DEFAULT_MODE}' not found in available modes.")
+    return default_mode
 
 
 def is_mode_valid(mode: str) -> bool:

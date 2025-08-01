@@ -609,7 +609,15 @@ def get_available_domains() -> List[IsoPromptDomain]:
 
 def get_default_domain() -> IsoPromptDomain:
     """Get the default domain."""
-    return IsoPromptDomain.model_validate(ISOPROMPT_DOMAINS[0])
+    domains = get_available_domains()
+    default_domain = next(
+        (domain for domain in domains if domain.domain == DEFAULT_DOMAIN), None
+    )
+    if default_domain is None:
+        raise ValueError(
+            f"Default domain '{DEFAULT_DOMAIN}' not found in available domains."
+        )
+    return default_domain
 
 
 def is_domain_valid(domain: str) -> bool:

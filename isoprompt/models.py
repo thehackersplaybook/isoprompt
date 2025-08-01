@@ -12,11 +12,15 @@ class IsoPromptMode(BaseModel):
     A model for a IsoPrompt mode.
     """
 
-    name: str
+    mode: str
     description: str
-    examples: List[str]
-    instructions: str
-    parameters: Optional[Dict[str, str]] = None
+    usage: str
+    capabilities: List[str]
+    strictness: str
+    require_citations: bool
+    output_formats: List[str]
+    industries: List[str]
+    topics: List[str]
 
 
 class IsoPromptDomain(BaseModel):
@@ -24,8 +28,7 @@ class IsoPromptDomain(BaseModel):
     A model for a IsoPrompt domain.
     """
 
-    name: str
+    domain: str
     description: str
-    examples: List[str]
-    instructions: str
-    parameters: Optional[Dict[str, str]] = None
+    fields: List[str]
+    applications: List[str]

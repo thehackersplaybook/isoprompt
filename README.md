@@ -12,7 +12,6 @@ IsoPrompt [`isoprompt`] offers prompt optimization via a simple, user-friendly C
 - 🔧 **Domain-specific tuning** for various fields.
 - 🛠 **Multiple optimization modes** for different use cases.
 - 📚 **Rich documentation** and examples.
-- 🧪 **Test-driven development** with high coverage.
 - 🔒 **Type-safe** with full type hints.
 
 ## Quick Start
@@ -45,12 +44,7 @@ pip install isoprompt
 
 ## Changelog
 
-### v1.0.1
-
-- Initial public release on PyPI.
-- Renamed package to isoprompt.
-- Added comprehensive documentation.
-- Added type hints and py.typed marker.
+See [Changelog](https://github.com/thehackersplaybook/isoprompt/blob/main/CHANGELOG.md) for more details.
 
 ## License
 

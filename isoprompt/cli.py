@@ -4,7 +4,7 @@ Command-line interface for IsoPrompt, prompt optimization a command away.
 """
 
 import argparse
-import json
+import traceback
 import os
 import sys
 import time
@@ -256,6 +256,7 @@ def main() -> None:
         sys.exit(0)
     except Exception as e:
         print("Error: IsoPrompt run failed: " + str(e) + ".")
+        traceback.print_exc()
         sys.exit(1)
 
 
