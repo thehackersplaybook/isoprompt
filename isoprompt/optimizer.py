@@ -18,6 +18,7 @@ from .constants import (
     DEFAULT_LLM_MODEL,
     DEFAULT_MODE,
     DEFAULT_TEMPERATURE,
+    DEFAULT_MAX_TOKENS,
     SUPPORTED_LLM_MODELS,
 )
 from .domains import get_available_domain_names, is_domain_valid
@@ -88,7 +89,7 @@ def optimize_prompt(
             model=model,
             messages=messages,  # type: ignore
             temperature=temperature,
-            max_tokens=2000,
+            max_tokens=DEFAULT_MAX_TOKENS,
         )
 
         content = response.choices[0].message.content
