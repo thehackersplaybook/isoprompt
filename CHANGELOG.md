@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.4] - 2nd August 2025 1:25am IST.
+
+- Fix validation and linting.
+
 ## [1.0.3] - 2nd August 2025 1:20am IST.
 
 - Update prompts.
