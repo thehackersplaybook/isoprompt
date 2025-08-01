@@ -26,7 +26,8 @@ exclude .pre-commit-config.yaml
 exclude pytest.ini
 exclude tox.ini
 exclude .coverage
-exclude .env*
+exclude .env
+exclude .env.*
 exclude .vscode
 exclude .idea
 exclude *.swp
